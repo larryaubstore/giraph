@@ -213,4 +213,11 @@ public class SimpleShortestPathsComputationTest {
     }
     return distances;
   }
+
+  public static void main(String[] args) {
+
+      // zzz;
+      System.out.println("Hello World!"); // Display the string.
+  }
+
 }

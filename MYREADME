@@ -1,0 +1,7 @@
+jar tvf jarfile.jar
+java -cp "/home/larry/devel/giraph/giraph-examples/target/munged/*:/home/larry/devel/giraph/giraph-core/target/*:/usr/local/hadoop/*"  org.apache.giraph.examples.SimpleShortestPathsComputationTest
+mvn -verify -DskipTests
+
+java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=jdbconn -cp "/home/larry/devel/giraph/giraph-examples/target/munged/*:/home/larry/devel/giraph/giraph-core/target/*:/usr/local/hadoop/*"  org.apache.giraph.examples.SimpleShortestPathsComputationTest
+
+jdb -attach 42077
