@@ -1,7 +1,9 @@
 jar tvf jarfile.jar
-java -cp "/home/larry/devel/giraph/giraph-examples/target/munged/*:/home/larry/devel/giraph/giraph-core/target/*:/usr/local/hadoop/*"  org.apache.giraph.examples.SimpleShortestPathsComputationTest
-mvn -verify -DskipTests
 
-java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=jdbconn -cp "/home/larry/devel/giraph/giraph-examples/target/munged/*:/home/larry/devel/giraph/giraph-core/target/*:/usr/local/hadoop/*"  org.apache.giraph.examples.SimpleShortestPathsComputationTest
+java -cp "/home/larry/devel/giraph/giraph-examples/target/munged/*:/home/larry/devel/giraph/giraph-core/target/*:/usr/local/hadoop/*"  org.apache.giraph.examples.SimpleShortestPathsComputationTest
+
+mvn verify -DskipTests
+
+java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=jdbconn -cp "/home/larry/devel/giraph/giraph-examples/target/munged/*:/home/larry/devel/giraph/giraph-core/target/*:/usr/local/hadoop/*:/home/larry/devel/commons-logging-1.2/*:/home/larry/devel/commons-configuration-1.10/*:/home/larry/devel/commons-lang-2.6/*"  org.apache.giraph.examples.SimpleShortestPathsComputationTest
 
 jdb -attach 42077

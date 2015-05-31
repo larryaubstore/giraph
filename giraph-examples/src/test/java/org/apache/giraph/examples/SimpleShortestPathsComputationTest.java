@@ -214,7 +214,10 @@ public class SimpleShortestPathsComputationTest {
     return distances;
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
+
+      SimpleShortestPathsComputationTest simple = new SimpleShortestPathsComputationTest();
+      simple.testToyData();
 
       // zzz;
       System.out.println("Hello World!"); // Display the string.
