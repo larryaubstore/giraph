@@ -49,8 +49,8 @@ import java.util.List;
 @Algorithm(
     name = "Link Map"
 )
-public class LinkMap extends BasicComputation<String,
-    String, String, String> {
+public class LinkMap extends BasicComputation<Text,
+    Text, Text, Text> {
   /** Number of supersteps for this test */
   public static final int MAX_SUPERSTEPS = 30;
   /** Logger */
@@ -59,7 +59,7 @@ public class LinkMap extends BasicComputation<String,
 
   @Override
   public void compute(
-      Vertex<String, String, String> vertex,
+      Vertex<Text, Text, Text> vertex,
       Iterable<Text> messages) throws IOException {
     if (getSuperstep() >= 1) {
 //      double sum = 0;
@@ -137,9 +137,15 @@ public class LinkMap extends BasicComputation<String,
 
 
     @Override
-    public Vertex<String, String, String>
+    public boolean nextVertex() {
+      return totalRecords > recordsRead;
+    }
+
+
+    @Override
+    public Vertex<Text, Text, Text>
     getCurrentVertex() throws IOException {
-      Vertex<String, String, String> vertex = getConf().createVertex();
+      Vertex<Text, Text, Text> vertex = getConf().createVertex();
 //      LongWritable vertexId = new LongWritable(
 //          (inputSplit.getSplitIndex() * totalRecords) + recordsRead);
 //      DoubleWritable vertexValue = new DoubleWritable(vertexId.get() * 10d);

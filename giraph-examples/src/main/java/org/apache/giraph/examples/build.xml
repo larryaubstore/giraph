@@ -8,12 +8,15 @@
 
     <property name="main-class"  value="org.apache.giraph.examples.LinkMap"/>
 
-    <property name="hadoop.dir"     value="/home/larry/devel/giraph/giraph-core/target" />
-    <!-- <property name="hadoop.jar"     value="giraph-1.2.0-SNAPSHOT-for-hadoop-1.2.1-jar-with-dependencies.jar"/> -->
+    <property name="hadoop.core.dir"     value="/home/larry/devel/giraph/giraph-core/target" />
+    <property name="hadoop.core.jar"     value="**/*.jar"/>
+
+    <property name="hadoop.dir"     value="/usr/local/hadoop" />
     <property name="hadoop.jar"     value="**/*.jar"/>
 
     <path id="classpath">
         <fileset dir="${hadoop.dir}" includes="${hadoop.jar}"/>
+        <fileset dir="${hadoop.core.dir}" includes="${hadoop.core.jar}"/>
     </path>
 
 
