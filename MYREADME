@@ -7,6 +7,6 @@ mvn verify -DskipTests
 java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=jdbconn -cp "/home/larry/devel/giraph/giraph-examples/target/munged/*:/home/larry/devel/giraph/giraph-core/target/*:/usr/local/hadoop/*:/home/larry/devel/commons-logging-1.2/*:/home/larry/devel/commons-configuration-1.10/*:/home/larry/devel/commons-lang-2.6/*"  org.apache.giraph.examples.SimpleShortestPathsComputationTest
 
 jdb -attach 42077
-
+stop at org.apache.giraph.examples.LinkMapTest:93
 
 sudo -u hduser /usr/local/hadoop/bin/hadoop jar giraph-examples/target/giraph-examples-1.2.0-SNAPSHOT-for-hadoop-1.2.1-jar-with-dependencies.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /user/hduser/input/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /user/hduser/output/shortestpaths -w 1
