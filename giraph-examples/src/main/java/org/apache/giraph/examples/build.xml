@@ -44,6 +44,8 @@
             <path refid="classpath"/>
             <path location="${jar.dir}/${ant.project.name}.jar"/>
           </classpath>
+
+          <jvmarg value="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=jdbconn" />
         </java>
     </target>
 
