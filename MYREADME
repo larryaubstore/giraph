@@ -10,3 +10,9 @@ jdb -attach 42077
 stop at org.apache.giraph.examples.LinkMapTest:93
 
 sudo -u hduser /usr/local/hadoop/bin/hadoop jar giraph-examples/target/giraph-examples-1.2.0-SNAPSHOT-for-hadoop-1.2.1-jar-with-dependencies.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /user/hduser/input/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /user/hduser/output/shortestpaths -w 1
+
+
+sudo -u hduser /usr/local/hadoop/bin/hadoop namenode -format
+sudo -u hduser /usr/local/hadoop/bin/start-dfs.sh
+sudo -u hduser /usr/local/hadoop/bin/start-mapred.sh
+sudo -u hduser jps
