@@ -61,6 +61,8 @@ public class LinkMap extends BasicComputation<Text,
   public void compute(
       Vertex<Text, Text, Text> vertex,
       Iterable<Text> messages) throws IOException {
+
+    System.out.println("LARRY ===================== MESSAGE");
     if (getSuperstep() >= 1) {
 //      double sum = 0;
 //      for (DoubleWritable message : messages) {

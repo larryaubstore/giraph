@@ -84,8 +84,10 @@ public class VertexIterator<I extends WritableComparable,
    * Moves to the next element in the iteration.
    */
   public void next() {
+    System.out.println("LARRY ====> NEXT");
     // If the vertex was released, create another one
     if (vertex == null) {
+      System.out.println("LARRY ====> NULL");
       resetEmptyVertex();
     }
 

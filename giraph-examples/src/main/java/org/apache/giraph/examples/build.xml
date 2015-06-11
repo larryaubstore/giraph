@@ -1,12 +1,15 @@
 <project name="LinkMap" basedir="." default="main">
 
     <property name="src.dir"     value="/home/larry/devel/giraph/giraph-examples/src"/>
+    
+    <property name="src.core.dir"     value="/home/larry/devel/giraph/giraph-core/src"/>
 
     <property name="build.dir"   value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
 
-    <property name="main-class"  value="org.apache.giraph.examples.LinkMapTest"/>
+    <!-- <property name="main-class"  value="org.apache.giraph.examples.SimpleShortestPathsComputationTest"/> -->
+    <property name="main-class"  value="org.apache.giraph.examples.LinkMapTest"/> 
 
     <property name="hadoop.core.dir"     value="/home/larry/devel/giraph/giraph-core/target" />
     <property name="hadoop.core.jar"     value="**/*.jar"/>
@@ -16,13 +19,33 @@
 
     <path id="classpath">
         <fileset dir="${hadoop.dir}" includes="${hadoop.jar}"/>
-        <fileset dir="${hadoop.core.dir}" includes="${hadoop.core.jar}"/>
+<!--        <fileset dir="${hadoop.core.dir}" includes="${hadoop.core.jar}"/> -->
+
+        <fileset dir="." includes="guava-18.0.jar" />
+        <fileset dir="." includes="zookeeper-3.4.6.jar" />
+        <fileset dir="." includes="metrics-core-2.2.0.jar" />
+        <fileset dir="." includes="dsiutils-2.2.4.jar" />
+        <fileset dir="." includes="fastutil-7.0.6.jar" />
+        <fileset dir="." includes="netty-all-4.0.28.Final.jar" />
+        <fileset dir="." includes="swift-service-0.15.0.jar" />
+        <fileset dir="." includes="jython-standalone-2.7.0.jar" />
+        <fileset dir="." includes="javaee-api-7.0.jar" />
+        <fileset dir="." includes="org.json-20120521.jar" />
+        <fileset dir="." includes="yarn-0.5.2-hadoop2.jar" />
+        <fileset dir="." includes="yjp-controller-api-redist-14.120.0.jar" />
+        <fileset dir="." includes="packaging-0.110.jar" />
     </path>
 
 
     <target name="clean">
         <delete dir="${build.dir}"/>
     </target>
+
+    <target name="compilecore">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.core.dir}" destdir="${classes.dir}" classpathref="classpath" debug="true" debuglevel="lines,vars,source" />
+    </target>
+
 
     <target name="compile">
         <mkdir dir="${classes.dir}"/>

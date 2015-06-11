@@ -16,3 +16,5 @@ sudo -u hduser /usr/local/hadoop/bin/hadoop namenode -format
 sudo -u hduser /usr/local/hadoop/bin/start-dfs.sh
 sudo -u hduser /usr/local/hadoop/bin/start-mapred.sh
 sudo -u hduser jps
+
+mvn dependency:copy-dependencies

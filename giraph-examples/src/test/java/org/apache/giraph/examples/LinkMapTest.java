@@ -68,8 +68,21 @@ public class LinkMapTest {
 
     GiraphConfiguration conf = new GiraphConfiguration();
     // start from vertex 1
-    SOURCE_ID.set(conf, 1);
-//    conf.setComputationClass(LinkMap.class);
+    //SOURCE_ID.set(conf, 1);
+    conf.setComputationClass(LinkMap.class);
+
+    //conf.setComputationClass(SimpleShortestPathsComputation.class);
+    conf.setOutEdgesClass(ByteArrayEdges.class);
+    conf.setVertexInputFormatClass(
+        JsonLongDoubleFloatDoubleVertexInputFormat.class);
+    conf.setVertexOutputFormatClass(
+        JsonLongDoubleFloatDoubleVertexOutputFormat.class);
+
+    // run internally
+    Iterable<String> results = InternalVertexRunner.run(conf, graph);
+
+    //Map<Long, Double> distances = parseDistancesJson(results);
+
 //    conf.setOutEdgesClass(ArrayListEdges.class);
 //    conf.setVertexInputFormatClass(IntIntNullTextVertexInputFormat.class);
 //    conf.setVertexOutputFormatClass(
